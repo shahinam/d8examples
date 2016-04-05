@@ -1,0 +1,25 @@
+id: actor_csv
+label: Actor CSV
+third_party_settings:
+  migrate_plus:
+    migration_group: movies_csv
+migration_tags:
+  - CSV
+source:
+  plugin: csv
+  path: public://actors.csv
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    0:
+      id: ID
+    1:
+      name: Name
+process:
+  type:
+    plugin: default_value
+    default_value: actor
+  title: name
+destination:
+  plugin: entity:node

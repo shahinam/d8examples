@@ -1,0 +1,64 @@
+<?php
+
+const USER_ACCOUNT_NOTIFY_ALL = 'all';
+const USER_ACCOUNT_NOTIFY_QUEUE = 'queue';
+const USER_ACCOUNT_NOTIFY_NONE = 'none';
+
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Queue\QueueInterface;
+use Drupal\user\UserInterface;
+use Drupal\Component\Render\PlainTextOutput;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function user_account_notify_user_insert(EntityInterface $entity) {
+  _user_account_notify_user_queue_add($entity, 'insert');
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function user_account_notify_user_update(EntityInterface $entity) {
+  _user_account_notify_user_queue_add($entity, 'update');
+}
+
+function _user_account_notify_user_queue_add(EntityInterface $entity, $op) {
+  $general_config = \Drupal::config('user_account_notify.general');
+
+  // Add notification to queue only if enabled.
+  if ($general_config->get('mail_notification') == USER_ACCOUNT_NOTIFY_ALL) {
+    /** @var QueueInterface $queue */
+    $queue = \Drupal::service('queue')->get('user_account_notify');
+
+    $item = new \stdClass();
+    $item->op = $op;
+    $item->uid = $entity->id();
+
+    $queue->createItem($item);
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function user_account_notify_mail($key, &$message, $params) {
+  // if none of the notification need to get out, simply discard.
+  // NOTE: It is done by design, we do not want to send old notifications to users.
+  $general_config = \Drupal::config('user_account_notify.general');
+  if ($general_config->get('mail_notification') == USER_ACCOUNT_NOTIFY_NONE) {
+    $message['send'] = FALSE;
+    return;
+  }
+
+  $mail_config = \Drupal::config('user_account_notify.mail');
+  $token_service = \Drupal::token();
+
+  $token_options = ['langcode' => $message['langcode']];
+  $variables = ['user' => $params['account']];
+
+  $message['subject'] = PlainTextOutput::renderFromHtml($token_service->replace($mail_config->get($key . '.subject'), $variables, $token_options));
+  $message['body'][] = $token_service->replace($mail_config->get($key . '.body'), $variables, $token_options);
+}

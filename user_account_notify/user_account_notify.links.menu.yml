@@ -1,0 +1,6 @@
+user_account_notify.user.admin_form:
+  title: 'User account notify settings'
+  parent: user.admin_index
+  description: 'Configure user notify settings.'
+  weight: 10
+  route_name: user_account_notify.admin_form

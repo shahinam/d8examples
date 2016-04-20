@@ -1,0 +1,7 @@
+insert:
+  subject: 'Welcome to [site:name]'
+  body: "[user:display-name],\n\nWelcome to [site:name].\n\n--  [site:name] team"
+update:
+  subject: 'Updated your [site:name] account preferences'
+  body: "[user:display-name],\n\nYour account preferences have been updated.\n\n--  [site:name] team"
+langcode: en

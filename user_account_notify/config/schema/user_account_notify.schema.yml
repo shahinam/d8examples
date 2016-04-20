@@ -1,0 +1,21 @@
+user_account_notify.general:
+  type: config_object
+  label: 'General settings'
+  mapping:
+    mail_notification:
+      type: string
+      label: 'Notify users about account updates'
+    mail_notification_address:
+      type: string
+      label: 'Notification email address'
+
+user_account_notify.mail:
+ type: config_object
+ label: 'Email settings'
+ mapping:
+  insert:
+    type: mail
+    label: 'Welcome on account creation'
+  update:
+    type: mail
+    label: 'Notify on account update'

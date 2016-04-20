@@ -1,0 +1,5 @@
+name: User Account Notify
+description: Notify users about changes made to their accounts.
+core: 8.x
+type: module
+package: D8 Learn

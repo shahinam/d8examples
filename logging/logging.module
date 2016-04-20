@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains logging.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function user_account_notify_node_update(EntityInterface $entity) {
+  \Drupal::logger('Node Updates')
+    ->notice('Node with title %title of type %type has been updated', [
+      '%title' => $entity->label(),
+      '%type' => $entity->bundle(),
+    ]);
+}

@@ -1,0 +1,5 @@
+name: Loggig
+description: Log the node updates.
+type: module
+core: 8.x
+package: D8 Learn

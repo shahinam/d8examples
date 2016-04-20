@@ -1,0 +1,15 @@
+.list-item {
+  cursor: pointer;
+}
+.list-item.clicked {
+  font-weight: bold;
+}
+
+.delete span {
+  background: aliceblue;
+  color: #902b2b;
+}
+
+.message {
+  background: aliceblue;
+}

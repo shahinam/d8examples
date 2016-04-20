@@ -1,0 +1,21 @@
+node_delete:
+  css:
+    # theme key can be: base, layout, component, state and theme
+    # This is defined by SMACSS.
+    component:
+      css/node_delete.css: {}
+  js:
+    js/node_delete.js: {}
+  dependencies:
+    - core/jquery
+    # Makes window.Drupal available.
+    - core/drupal
+    # Makes window.drupalSettings available.
+    # no need to specify this, this is loaded with core/drupal as dependency.
+    #- core/drupalSettings
+
+
+table:
+  css:
+    component:
+      css/table.css: {}

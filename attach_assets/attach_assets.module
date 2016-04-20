@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Contains attach_assets.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function attach_assets_element_info_alter(array &$types) {
+  if (isset($types['table'])) {
+    $types['table']['#attached']['library'][] = 'attach_assets/table';
+  }
+}

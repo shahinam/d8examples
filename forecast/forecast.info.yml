@@ -1,0 +1,5 @@
+name: Forecast
+type: module
+description: 'Provides a forecast block.'
+package: "D8 Learn"
+core: 8.x

@@ -1,0 +1,7 @@
+{
+    "name": "shahinam/composer_test",
+    "type": "drupal-module",
+    "require": {
+        "guhelski/forecast-php": "^1.1"
+    }
+}

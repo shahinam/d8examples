@@ -2,7 +2,7 @@ name: Migrate Movies CSV
 type: module
 description: Migration Actors, Movies into Drupal from csv file.
 core: 8.x
-package: D8 Learn
+package: D8 Examples
 dependencies:
   - migrate_source_csv
   - migrate_plus

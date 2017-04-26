@@ -2,4 +2,4 @@ name: Auto Capitalize
 description: A filter to auto capitalize pre configured words.
 type: module
 core: 8.x
-package: D8 Learn
+package: D8 Examples

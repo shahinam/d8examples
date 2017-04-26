@@ -2,4 +2,4 @@ name: Attach Assets
 type: module
 description: Attach assets (CSS, JS).
 core: 8.x
-package: D8 Learn
+package: D8 Examples

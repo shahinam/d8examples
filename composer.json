@@ -1,0 +1,26 @@
+{
+    "name": "shahinam/d8examples",
+    "type": "drupal-module",
+    "description": "Drupal 8 Examples",
+    "keywords": ["Drupal"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Inam",
+            "email": "mohdinamshah@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/shahinam/d8examples",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://github.com/shahinam/d8examples/issues",
+        "source": "https://github.com/shahinam/d8examples"
+    },
+    "require": {
+        "drupal/migrate_source_csv": "^2.0",
+        "drupal/migrate_plus": "^2.0",
+        "drupal/migrate_tools": "^2.0"
+    },
+    "require-dev": {
+    }
+}

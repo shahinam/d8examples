@@ -1,0 +1,12 @@
+name: D8 Examples
+type: module
+description: Placeholder module to install all modules in package.
+core: 8.x
+package: D8 Examples
+dependencies:
+  - d8e_attach_assets
+  - d8e_auto_capitalize
+  - d8e_forecast
+  - d8e_logging
+  - d8e_migrate_csv
+  - d8e_user_account_notify

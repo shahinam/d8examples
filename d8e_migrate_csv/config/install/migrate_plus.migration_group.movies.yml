@@ -1,0 +1,4 @@
+id: d8e_movies_csv
+label: Movies and related data imports from csv.
+description: Import movies, actors, genres.
+source_type: csv

@@ -1,0 +1,14 @@
+attach_assets.index:
+  path: '/d8e/attach-assets/index'
+  defaults:
+    _controller: '\Drupal\d8e_attach_assets\Controller\AttachAssetsController::index'
+    _title: 'Attach assets'
+  requirements:
+    _permission: 'access content'
+
+attach_assets.node.delete:
+  path: '/d8e/attach-assets/node/delete/{nid}'
+  defaults:
+    _controller: '\Drupal\d8e_attach_assets\Controller\AttachAssetsController::nodeDelete'
+  requirements:
+    _permission: 'bypass node access'

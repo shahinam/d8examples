@@ -1,0 +1,48 @@
+id: d8e_movie_csv
+label: Movie CSV
+third_party_settings:
+  migrate_plus:
+    migration_group: movies_csv
+migration_tags:
+  - CSV
+source:
+  plugin: csv
+  path: public://movies.csv
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    0:
+      id: ID
+    1:
+      title: Title
+    2:
+      plot: Plot
+    3:
+      actors: Actors
+    4:
+      genre: Genre
+process:
+  type:
+    plugin: default_value
+    default_value: movie
+  title: title
+  field_plot: plot
+  field_actor:
+    -
+      plugin: explode
+      source: actors
+      delimiter: ','
+    -
+      plugin: migration
+      migration: actor_csv
+  field_genre:
+    -
+      plugin: explode
+      source: genre
+      delimiter: '|'
+destination:
+  plugin: entity:node
+migration_dependencies:
+  required:
+    - actor_csv

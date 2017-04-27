@@ -1,0 +1,7 @@
+user_account_notify.admin_form:
+  path: '/admin/config/people/user-account-notify'
+  defaults:
+    _form: '\Drupal\d8e_user_account_notify\Form\UserNotifySettingsForm'
+    _title: 'User account notify settings'
+  requirements:
+    _permission: 'administer account settings'
